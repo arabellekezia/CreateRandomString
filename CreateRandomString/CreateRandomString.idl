@@ -1,0 +1,17 @@
+import "ocidl.idl";
+
+[uuid("BD1AF32E-1B93-41E0-9014-F848CB1053BF"), version(1.0)]
+interface ICreateRandomString : IUnknown
+{
+    HRESULT CreateString([in] int size, [in] BYTE* buffer, [out, retval] wchar_t* output);
+}
+
+[uuid("B47F5212-9193-4057-8601-2A31AD369F7C"), version(1.0)]
+library CreateRandomStringLib
+{
+    [uuid("B006E30D-0C1B-495E-88F9-041810A0174B"), version(1.0)]
+    coclass CreateRandomString
+    {
+        [default] interface ICreateRandomString;
+    }
+};
